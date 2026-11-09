@@ -9,16 +9,22 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const githubPagesBase = process.env.GITHUB_ACTIONS === "true" ? "/YardaDev" : "";
+
 export default defineConfig({
+  vite: {
+    base: githubPagesBase ? `${githubPagesBase}/` : "/",
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    router: { basepath: githubPagesBase || undefined },
     prerender: {
       enabled: true,
       autoStaticPathsDiscovery: true,
       crawlLinks: true,
-      filter: ({ path }) => !path.startsWith("/assets/"),
+      filter: ({ path }) => !path.includes("/assets/"),
       failOnError: true,
     },
   },

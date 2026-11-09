@@ -3,11 +3,11 @@ import cryptoImg from "@/assets/project-crypto.jpg";
 import carbonImg from "@/assets/project-carbon.jpg";
 import bpjnImg from "@/assets/project-bpjn.jpg";
 import blockchainImg from "@/assets/project-blockchain.jpg";
-import certAndroid from "@/assets/cert-android.jpg.asset.json";
-import certOffice from "@/assets/cert-office.jpg.asset.json";
-import certCyber from "@/assets/cert-cyber.jpg.asset.json";
-import certAi from "@/assets/cert-ai.jpg.asset.json";
-import cvAsset from "@/assets/cv-yarda.pdf.asset.json";
+import certAndroid from "@/assets/cert-android.jpg";
+import certOffice from "@/assets/cert-office.jpg";
+import certCyber from "@/assets/cert-cyber.jpg";
+import certAi from "@/assets/cert-ai.jpg";
+import cvAsset from "@/assets/CV-M-Yarda-Andika.pdf";
 
 export const profile = {
   name: "M Yarda Andika",
@@ -22,18 +22,26 @@ export const profile = {
 };
 
 export const cv = {
-  url: cvAsset.url,
+  url: cvAsset,
   filename: "CV-M-Yarda-Andika.pdf",
 };
 
 export const socials = [
-  { label: "GitHub", href: "https://github.com/yardaandika", handle: "yardaandika" },
+  {
+    label: "GitHub",
+    href: "https://github.com/yardaandika",
+    handle: "yardaandika",
+  },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/m-yarda-andika-0350ba222/",
     handle: "m-yarda-andika",
   },
-  { label: "Instagram", href: "https://www.instagram.com/m_kyarda/", handle: "@m_kyarda" },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/m_kyarda/",
+    handle: "@m_kyarda",
+  },
 ] as const;
 
 export type SkillGroup = { title: string; code: string; items: string[] };
@@ -42,7 +50,15 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Programming & Web Development",
     code: "01",
-    items: ["Python", "JavaScript", "PHP", "HTML & CSS", "React", "Node.js", "FastAPI"],
+    items: [
+      "Python",
+      "JavaScript",
+      "PHP",
+      "HTML & CSS",
+      "React",
+      "Node.js",
+      "FastAPI",
+    ],
   },
   {
     title: "Data & Artificial Intelligence",
@@ -59,7 +75,14 @@ export const skillGroups: SkillGroup[] = [
   {
     title: "Database & Tools",
     code: "03",
-    items: ["MySQL", "MongoDB", "Git & GitHub", "VS Code", "REST API", "Google Maps API"],
+    items: [
+      "MySQL",
+      "MongoDB",
+      "Git & GitHub",
+      "VS Code",
+      "REST API",
+      "Google Maps API",
+    ],
   },
 ];
 
@@ -154,31 +177,34 @@ export type Certificate = {
 
 export const certificates: Certificate[] = [
   {
-    title: "Pemanfaatan Artificial Intelligence (AI) untuk Akademik dan Penelitian",
+    title:
+      "Pemanfaatan Artificial Intelligence (AI) untuk Akademik dan Penelitian",
     issuer: "Perpustakaan H. Soeman H.S — Universitas Islam Riau",
     date: "9 November 2026",
-    image: certAi.url,
+    image: certAi,
     tag: "AI",
   },
   {
-    title: "Empowerment Session Kick-off ASEAN Cybersecurity Skilling Programme",
-    issuer: "Teknik Informatika UIR × Microsoft, ASEAN Foundation, BULLYID Indonesia",
+    title:
+      "Empowerment Session Kick-off ASEAN Cybersecurity Skilling Programme",
+    issuer:
+      "Teknik Informatika UIR × Microsoft, ASEAN Foundation, BULLYID Indonesia",
     date: "21 Oktober 2022",
-    image: certCyber.url,
+    image: certCyber,
     tag: "Cybersecurity",
   },
   {
     title: "Workshop Make To Application Android From PPT",
     issuer: "Rumah Belajar Komputer",
     date: "21 Mei 2022",
-    image: certAndroid.url,
+    image: certAndroid,
     tag: "Mobile",
   },
   {
     title: "Workshop Office Management Application",
     issuer: "Rumah Belajar Komputer",
     date: "21 Mei 2022",
-    image: certOffice.url,
+    image: certOffice,
     tag: "Office",
   },
 ];

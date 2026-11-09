@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import logo from "@/assets/yarda-logo.png.asset.json";
+import logo from "@/assets/yarda-logo.png";
 import { DownloadCvButton } from "./DownloadCvButton";
 
 const nav = [
@@ -18,9 +18,19 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/75 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link
+          to="/"
+          className="flex items-center gap-3"
+          onClick={() => setOpen(false)}
+        >
           <span className="grid size-9 place-items-center rounded-lg border border-border bg-surface">
-            <img src={logo.url} alt="Logo Yarda" className="h-4 w-auto" width={20} height={17} />
+            <img
+              src={logo}
+              alt="Logo Yarda"
+              className="h-4 w-auto"
+              width={20}
+              height={17}
+            />
           </span>
           <span className="font-display text-sm font-semibold tracking-tight">
             Yarda<span className="text-primary">.</span>dev
@@ -42,7 +52,11 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden md:block">
-          <DownloadCvButton size="sm" label="CV" className="rounded-full px-4" />
+          <DownloadCvButton
+            size="sm"
+            label="CV"
+            className="rounded-full px-4"
+          />
         </div>
 
         <button

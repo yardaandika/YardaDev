@@ -1,6 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Brain, Code2, Database, GraduationCap, MapPin, Sparkles } from "lucide-react";
-import profileImg from "@/assets/yarda-profile.png.asset.json";
+import {
+  ArrowRight,
+  Brain,
+  Code2,
+  Database,
+  GraduationCap,
+  MapPin,
+  Sparkles,
+} from "lucide-react";
+import profileImg from "@/assets/yarda-profile.png";
 import { Button } from "@/components/ui/button";
 import { DownloadCvButton } from "@/components/site/DownloadCvButton";
 import { ProjectCard } from "@/components/site/ProjectCard";
@@ -22,7 +30,10 @@ export const Route = createFileRoute("/")({
         content:
           "Portofolio M Yarda Andika: mahasiswa Teknik Informatika UIR yang membangun aplikasi web full-stack dan solusi AI. Download CV, lihat skill & project.",
       },
-      { property: "og:title", content: "M Yarda Andika — Full-Stack Web Developer & AI" },
+      {
+        property: "og:title",
+        content: "M Yarda Andika — Full-Stack Web Developer & AI",
+      },
       {
         property: "og:description",
         content:
@@ -57,9 +68,10 @@ function Index() {
               <span className="text-gradient">{profile.name}</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              <span className="text-foreground">Full-Stack Web Developer</span> &{" "}
-              <span className="text-foreground">AI Enthusiast</span> — membangun aplikasi web dan
-              model machine learning yang mengubah data menjadi solusi nyata.
+              <span className="text-foreground">Full-Stack Web Developer</span>{" "}
+              & <span className="text-foreground">AI Enthusiast</span> —
+              membangun aplikasi web dan model machine learning yang mengubah
+              data menjadi solusi nyata.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <DownloadCvButton />
@@ -71,7 +83,8 @@ function Index() {
             </div>
             <div className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
               <span className="flex items-center gap-2">
-                <GraduationCap className="size-4 text-primary" /> {profile.university}
+                <GraduationCap className="size-4 text-primary" />{" "}
+                {profile.university}
               </span>
               <span className="flex items-center gap-2">
                 <MapPin className="size-4 text-primary" /> {profile.location}
@@ -83,7 +96,7 @@ function Index() {
             <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-primary opacity-25 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2rem] border border-border bg-surface shadow-card">
               <img
-                src={profileImg.url}
+                src={profileImg}
                 alt="Foto profil M Yarda Andika"
                 width={500}
                 height={500}
@@ -91,13 +104,17 @@ function Index() {
               />
             </div>
             <div className="absolute -bottom-5 -left-5 animate-float rounded-2xl border border-border bg-surface-raised/90 px-4 py-3 shadow-card backdrop-blur">
-              <p className="font-mono text-[11px] text-muted-foreground">model.predict()</p>
+              <p className="font-mono text-[11px] text-muted-foreground">
+                model.predict()
+              </p>
               <p className="flex items-center gap-2 text-sm font-semibold">
                 <Sparkles className="size-4 text-primary-glow" /> LSTM · FastAPI
               </p>
             </div>
             <div className="absolute -right-4 top-8 animate-float rounded-2xl border border-border bg-surface-raised/90 px-4 py-3 shadow-card backdrop-blur [animation-delay:1.5s]">
-              <p className="font-display text-2xl font-bold text-primary-glow">{projects.length}+</p>
+              <p className="font-display text-2xl font-bold text-primary-glow">
+                {projects.length}+
+              </p>
               <p className="text-xs text-muted-foreground">Project</p>
             </div>
           </div>
@@ -108,25 +125,40 @@ function Index() {
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="grid gap-10 md:grid-cols-[1fr_1.4fr]">
           <div className="self-start md:sticky md:top-24">
-            <SectionHeading eyebrow="// Tentang saya" title="Ngoding, data, dan rasa penasaran." />
+            <SectionHeading
+              eyebrow="// Tentang saya"
+              title="Ngoding, data, dan rasa penasaran."
+            />
           </div>
           <div>
-            <p className="text-lg leading-relaxed text-muted-foreground">{profile.about}</p>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              {profile.about}
+            </p>
             <div className="mt-8 grid grid-cols-3 gap-4">
               {[
                 { n: `${projects.length}`, l: "Project" },
                 { n: `${certificates.length}`, l: "Sertifikat" },
-                { n: `${skillGroups.reduce((a, g) => a + g.items.length, 0)}`, l: "Skill teknis" },
+                {
+                  n: `${skillGroups.reduce((a, g) => a + g.items.length, 0)}`,
+                  l: "Skill teknis",
+                },
               ].map((s) => (
-                <div key={s.l} className="rounded-2xl border border-border bg-surface p-5">
-                  <p className="font-display text-3xl font-bold text-gradient">{s.n}</p>
+                <div
+                  key={s.l}
+                  className="rounded-2xl border border-border bg-surface p-5"
+                >
+                  <p className="font-display text-3xl font-bold text-gradient">
+                    {s.n}
+                  </p>
                   <p className="mt-1 text-sm text-muted-foreground">{s.l}</p>
                 </div>
               ))}
             </div>
             <div className="mt-4 rounded-2xl border border-border bg-surface p-5">
               <div className="flex items-center justify-between">
-                <p className="font-mono text-xs text-primary-glow">Pengalaman</p>
+                <p className="font-mono text-xs text-primary-glow">
+                  Pengalaman
+                </p>
                 <Link
                   to="/pengalaman"
                   className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary-glow"
@@ -136,7 +168,10 @@ function Index() {
               </div>
               <ul className="mt-3 divide-y divide-border">
                 {experience.slice(0, 3).map((e) => (
-                  <li key={e.org} className="flex flex-col gap-1 py-3 text-sm sm:flex-row sm:justify-between">
+                  <li
+                    key={e.org}
+                    className="flex flex-col gap-1 py-3 text-sm sm:flex-row sm:justify-between"
+                  >
                     <span>
                       <span className="font-semibold">{e.role}</span>
                       <span className="text-muted-foreground"> — {e.org}</span>
@@ -177,7 +212,9 @@ function Index() {
                   <span className="grid size-11 place-items-center rounded-xl bg-accent text-primary-glow">
                     <Icon className="size-5" />
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground">{g.code}</span>
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {g.code}
+                  </span>
                 </div>
                 <h3 className="mt-5 text-lg font-semibold">{g.title}</h3>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -244,8 +281,12 @@ function Index() {
                 className="aspect-[4/3] w-full object-cover opacity-90 transition-transform duration-500 group-hover:scale-105"
               />
               <div className="p-3">
-                <p className="font-mono text-[11px] text-primary-glow">{c.tag}</p>
-                <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">{c.title}</p>
+                <p className="font-mono text-[11px] text-primary-glow">
+                  {c.tag}
+                </p>
+                <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                  {c.title}
+                </p>
               </div>
             </Link>
           ))}

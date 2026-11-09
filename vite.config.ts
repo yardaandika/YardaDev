@@ -18,6 +18,7 @@ export default defineConfig({
       enabled: true,
       autoStaticPathsDiscovery: true,
       crawlLinks: true,
+      filter: ({ path }) => !path.startsWith("/assets/"),
       failOnError: true,
     },
   },

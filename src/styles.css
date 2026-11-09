@@ -1,0 +1,196 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * Keep every @import in this top block. Web fonts load via <link> in src/routes/__root.tsx.
+ */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Electric-blue on deep navy. The site is dark-only. */
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.15 0.03 265);
+  --foreground: oklch(0.95 0.015 265);
+  --surface: oklch(0.19 0.035 265);
+  --surface-raised: oklch(0.23 0.04 265);
+  --card: oklch(0.19 0.035 265);
+  --card-foreground: oklch(0.95 0.015 265);
+  --popover: oklch(0.19 0.035 265);
+  --popover-foreground: oklch(0.95 0.015 265);
+  --primary: oklch(0.65 0.19 258);
+  --primary-glow: oklch(0.78 0.14 240);
+  --primary-foreground: oklch(0.13 0.03 265);
+  --secondary: oklch(0.24 0.04 265);
+  --secondary-foreground: oklch(0.95 0.015 265);
+  --muted: oklch(0.22 0.035 265);
+  --muted-foreground: oklch(0.7 0.03 260);
+  --accent: oklch(0.26 0.06 260);
+  --accent-foreground: oklch(0.95 0.015 265);
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.3 0.04 265);
+  --input: oklch(0.3 0.04 265);
+  --ring: oklch(0.65 0.19 258);
+  --chart-1: oklch(0.65 0.19 258);
+  --chart-2: oklch(0.78 0.14 240);
+  --chart-3: oklch(0.72 0.15 200);
+  --chart-4: oklch(0.6 0.15 280);
+  --chart-5: oklch(0.8 0.1 220);
+  --sidebar: oklch(0.19 0.035 265);
+  --sidebar-foreground: oklch(0.95 0.015 265);
+  --sidebar-primary: oklch(0.65 0.19 258);
+  --sidebar-primary-foreground: oklch(0.13 0.03 265);
+  --sidebar-accent: oklch(0.26 0.06 260);
+  --sidebar-accent-foreground: oklch(0.95 0.015 265);
+  --sidebar-border: oklch(0.3 0.04 265);
+  --sidebar-ring: oklch(0.65 0.19 258);
+
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
+  --gradient-text: linear-gradient(100deg, var(--foreground) 20%, var(--primary-glow) 60%, var(--primary));
+  --gradient-hero: radial-gradient(60% 60% at 75% 30%, color-mix(in oklab, var(--primary) 28%, transparent), transparent 70%),
+    radial-gradient(40% 40% at 10% 90%, color-mix(in oklab, var(--primary-glow) 14%, transparent), transparent 70%);
+  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--primary) 40%, transparent),
+    0 12px 40px -12px color-mix(in oklab, var(--primary) 60%, transparent);
+  --shadow-card: 0 20px 50px -25px oklch(0 0 0 / 70%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 45%, transparent);
+  }
+}
+
+@utility bg-hero {
+  background-image: var(--gradient-hero);
+}
+
+@utility bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
+@utility text-gradient {
+  background-image: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--border) 45%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--border) 45%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

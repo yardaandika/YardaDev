@@ -9,7 +9,8 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const githubPagesBase = process.env.GITHUB_ACTIONS === "true" ? "/YardaDev" : "";
+const githubPagesBase =
+  process.env["GITHUB_ACTIONS"] === "true" ? "/YardaDev" : "";
 
 export default defineConfig({
   vite: {
@@ -24,7 +25,7 @@ export default defineConfig({
       enabled: true,
       autoStaticPathsDiscovery: true,
       crawlLinks: true,
-      filter: ({ path }) => !path.includes("/assets/"),
+      filter: ({ path }: { path: string }) => !path.includes("/assets/"),
       failOnError: true,
     },
   },

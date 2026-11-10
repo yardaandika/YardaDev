@@ -1,5 +1,6 @@
-# Welcome to your Lovable project
+# Welcome to Yarda Website Profile
 
+Web Profile can make your personal branding feels more powerfull. You can easly share your link profile to make clients impressed with your portofolio like project you have done or experience's you have.
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
